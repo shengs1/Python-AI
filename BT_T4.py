@@ -145,6 +145,159 @@ total_price = sum(juice["price"] for juice in juices)
 average_price = total_price / len(juices)
 print(f"Giá trung bình của một loại nước ép là: {average_price:.0f} VND")
 
+print("\n25. Chuyến đi Thụy Sĩ (Từ điển với danh sách là giá trị)")
+print("1 bắt đầu với một từ điển trống:")
+tips={} # dictionary Go use {}
+print(tips)
+
+print("\n2 đưa ra một số gợi ý:")
+tips ["cities"] = ["Bern", "Lucern"]
+tips ["food"] = ["chocolate", "raclette"]
+print(tips)
+
+print("\n3  thêm hai thành phố nữa và hai món ăn:")
+# use .append()
+print("Cách thêm 1:")
+tips["cities"].append("Lugano")
+print(tips)
+
+print("\n4")
+# Method 2 to add to use +
+print("Cách thêm 2:")
+tips["cities"] += ["Geneva"]
+print(tips)
+
+print("\n5")
+# use get() and append
+print("Cách thêm 3 dùng get và append:")
+tips.get("food").append("onion tarte")
+print(tips)
+
+print("\n6")
+# use get() and +
+print("Cách thêm 4 dùng get và +:")
+tips ["food"] = tips.get("food") + ["fondue"]
+print(tips)
+
+print("\n7")
+# print key and value
+print("Kiểm tra xem từ điển có chính xác không, in từng mục một:")
+for k,v in tips.items():
+    print(k,v)
+
+print("\n8")
+print("Cải thiện bản in để dễ đọc hơn:")
+for k,v in tips.items():
+    print("{:>6}: {}".format(k,v)) #right align before : 6 characters
+#string .format() là  định dạng các đối số và chèn chúng vào các chỗ giữ chỗ
+
+print("\n9")
+print("chỉ muốn in các khóa hoặc các giá trị:")
+for k in tips.keys():
+    print(k)
+
+print("\n10")
+print("Tương tự cho giá trị:")
+for v in tips.values():
+    print(v)
+
+print("\nBài Tập Áp Dụng 1")
+print("Dữ liệu ban đầu:")
+store = {"furniture": ["chair", "table", "sofa"], "amount": [24, 7, 6], "price": [200, 500, 1200]}
+print(store)
+
+print("\na. Khách mua 4 chiếc ghế (chair), cập nhật số lượng bằng phép toán số học:")
+# Ghế là món đầu tiên trong danh sách furniture, index = 0
+store["amount"][0] -= 4  # Trừ 4 chiếc ghế
+print(store)
+
+print("\nb. Thêm 9 tấm thảm, mỗi tấm 150 đô; và 4 chiếc đèn, mỗi chiếc 180 đô:")
+print("Sử dụng cú pháp khác nhau: .append() và toán tử cộng +=:")
+print("Sử dụng cú pháp .append()")
+store["furniture"].append("carpet")  # Thêm tấm thảm
+store["amount"].append(9)             # Số lượng 9 tấm thảm
+store["price"].append(150)            # Giá 150 đô/tấm
+print(store)
+
+print("Sử dụng cú toán tử cộng +=:")
+store["furniture"] += ["lamp"]        # Thêm đèn
+store["amount"] += [4]                 # Số lượng 4 chiếc đèn
+store["price"] += [180]
+print(store)
+
+print("\nc. Chủ nhà hàng mua tất cả các bàn (table):")
+# Bàn ở index 1 trong danh sách
+print("Cách 1: dùng trực tiếp chỉ số")
+store["amount"][1] = 0
+print(store)
+print("Cách 2: dùng phương thức index() để tìm vị trí và cập nhật:")
+idx = store["furniture"].index("table")
+store["amount"][idx] = 0
+print(store)
+
+print("\nd. In từ điển với căn chỉnh khóa sang phải, giá trị sang trái:")
+for key in store:
+    print(f"{key:>10}: {store[key]}")
+
+print("\ne. Tính tổng giá trị tồn kho = số lượng * giá của từng món, rồi cộng lại:")
+total_value = 0
+for amount, price in zip(store["amount"], store["price"]):
+    total_value += amount * price
+print("Tổng giá trị đồ nội thất còn trong kho:", total_value)
+
+
+
+print("\nBài Tập Áp Dụng 2")
+#Dữ liệu ban đầu
+dictionary = {"numbers": [2, 3, 4, 5, 6, 7, 8, 9, 10]}
+print("Dữ liệu ban đầu:")
+print(dictionary)
+
+# a. Thêm cặp khóa: giá trị với khóa là 'even' và giá trị là danh sách True/False cho số chẵn/lẻ
+print("\na. Thêm cặp khóa 'even' với True cho số chẵn, False cho số lẻ:")
+even_list = [num % 2 == 0 for num in dictionary["numbers"]]
+dictionary["even"] = even_list
+print(dictionary)
+
+# b. Trừ 1 cho mỗi số trong danh sách numbers
+print("\nb. Trừ 1 cho mỗi số trong danh sách 'numbers':")
+dictionary["numbers"] = [num - 1 for num in dictionary["numbers"]]
+print(dictionary)
+
+# c. Sửa đổi danh sách Boolean 'even' sao cho tương ứng với danh sách số mới
+print("\nc. Dịch chuyển danh sách Boolean 'even' để phù hợp với danh sách số mới:")
+# Ở đây dịch chuyển có thể hiểu là dịch trái hoặc dịch phải 1 vị trí.
+# Do số bị trừ đi 1, số lẻ/chẵn sẽ thay đổi. Chúng ta sẽ dịch chuyển danh sách 'even' sang phải 1 vị trí
+# để "cập nhật" tương ứng với numbers mới.
+dictionary["even"] = [dictionary["even"][-1]] + dictionary["even"][:-1]
+print(dictionary)
+
+
+# ------------------------------------------------------------------
+# Phần 4: In hình tam giác với số nguyên người dùng nhập
+
+print("\nPhần 4: In hình tam giác số")
+
+while True:
+    n = input("Nhập số nguyên dương (hoặc nhập 'exit' để thoát): ")
+    if n.lower() == "e":
+        print("Kết thúc chương trình.")
+        break
+
+    if not n.isdigit() or int(n) <= 0:
+        print("Vui lòng nhập số nguyên dương hợp lệ.")
+        continue
+
+    n = int(n)
+
+    # Tạo dictionary chứa số và danh sách lặp lại số đó
+    triangle_dict = {}
+    for i in range(1, n + 1):
+        triangle_dict[i] = [i] * i
+
+    # In ra hình tam giác theo yêu cầu
+    for key in triangle_dict:
+        print(key, triangle_dict[key])
 
 
 
