@@ -299,5 +299,97 @@ while True:
     for key in triangle_dict:
         print(key, triangle_dict[key])
 
+print("\n26. Đếm, nén và sắp xếp")
+print("1. Đếm phần tử")
+greetings = "hello! how are you?"
+print(greetings)
 
+print("\n1. Sử dụng if/elif:")
+# create character library and value is count
+demkytu={}
+for kytu in greetings:
+    if kytu not in demkytu.keys(): # if that character is not already in the # key of the character count
 
+        demkytu[kytu]=1;
+    else:
+        demkytu [kytu]+=1
+    for k,v in demkytu.items():
+        print(k,v)
+
+print("\n2. Sử dụng .get():")
+# create character library and value is count
+demkytu = {}
+for kytu in greetings:
+    demkytu[kytu] = demkytu.get(kytu, 0) + 1
+for k, v in demkytu.items():
+    print(k, v)
+
+print("\n2. Nén thông tin")
+print("1")
+print("Cho danh sách sau:")
+sparse_vector = [0, 0, 0, 1, 0, 7, 0, 0, 4, 0, 0, 0, 8, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+print(sparse_vector)
+
+print("\n2")
+print("Chuyển đổi nó thành một từ điển:")
+# create a dictionary for it
+sparse_dict = {}
+for i in range(len(sparse_vector)):
+    if sparse_vector[i] != 0: # if the value there is not 0
+        sparse_dict[i] = sparse_vector[i] # write to dictionary position i # and other value o there
+print(sparse_dict)
+
+print("\n3")
+print("thêm lưu trữ chiều dài của dãy số vào từ điển")
+sparse_dict["length"] = len(sparse_vector)
+# print out each key and corresponding value
+for k,v in sparse_dict.items():
+    print(k,v)
+
+print("\n4")
+print("Làm thế nào để chúng ta quay lại vectơ thưa thớt? (khôi phục)")
+#đầu tiên xác định chiều dài qua thông số lưu trữ
+khoiphuc=[0]*sparse_dict["length"]
+# ban đầu tất cả đều là 0
+# Bây giờ chúng ta khôi phục các vị trí khác 0
+#add thêm các giá trị 0 vào
+for k,v in sparse_dict.items():
+    if k!= "length": # Loại bỏ phần tử cuối cùng
+        khoiphuc [k]= v # khôi phục vị trí k giá trị v
+print(khoiphuc)
+
+print("\n3. Sắp xếp từ điển")
+print("1")
+print("Cho từ điển sau:")
+registry = {"Shaili": 4, "Chris":90, "Maria":70}
+print(registry)
+
+print("\n2")
+print(". Sắp xếp từ điển")
+# khởi tạo từ điển sau khi được sắp xếp
+sapxep={}
+# sắp sếp theo key
+# đầu tiên lấy hết danh sách key
+sapxep_keys=list(registry.keys())
+sapxep_keys.sort();
+print(sapxep_keys)
+
+print("\n3")
+print("sau đó đi tìm value tương ứng")
+for k in sapxep_keys:
+    sapxep[k]=registry[k]
+print(sapxep)
+
+print("\4")
+print("Sắp xếp các mục từ điển theo giá trị của chúng:")
+# khởi tạo từ điển sau khi được sắp xếp
+sapxep={}
+# sắp sếp theo key theo giá trị
+sapxep_key=sorted(registry, key=registry.get)
+print(sapxep_key)
+
+print("\5")
+print("sau đó đi tìm value tương ứng")
+for k in sapxep_key:
+    sapxep[k]=registry[k]
+print(sapxep)
