@@ -7,7 +7,7 @@ def print_thank_you(ten):
     "Thank you" và tên
 
     Tham số
-    --------
+    -------
     ten : string
         tên là tên của ai đó
     """
