@@ -98,7 +98,7 @@ print_thank_you(ho="Xiao", ten="Li")
 
 print("\nBài tập áp dụng")
 
-# 1. Các trường hợp chuỗi
+print("\n1. Các trường hợp chuỗi")
 def truong_hop_chuoi(s):
     print("Chuỗi gốc:", s)
     print("Chữ thường:", s.lower())
@@ -158,6 +158,36 @@ def tao_tu_dien_nhan_doi():
 
 print("Gọi hàm")
 tao_tu_dien_nhan_doi()
+
+print("\n Bài tập áp dụng T185")
+import random
+
+def chon_tu_ngau_nhien(danh_sach_tu):
+    tu_duoc_chon = random.choice(danh_sach_tu)  # chọn ngẫu nhiên 1 từ
+    return tu_duoc_chon.lower()  # chuyển về chữ thường
+
+# Ví dụ sử dụng:
+ds_tu = ["muỗng", "Nĩa", "DAO"]
+tu_ket_qua = chon_tu_ngau_nhien(ds_tu)
+print("Từ được chọn:", tu_ket_qua)
+
+def hien_thi_chu_da_doan(chu_da_doan, tu):
+    ket_qua = ""
+
+    for chu in tu:
+        if chu.lower() == chu_da_doan.lower():
+            ket_qua += chu + " "  # nếu đoán đúng, hiển thị chữ
+        else:
+            ket_qua += "_ "       # nếu chưa đoán đúng, hiển thị gạch dưới
+
+    return ket_qua.strip()
+
+# Ví dụ sử dụng:
+tu = "hello"
+chu_doan = "l"
+ket_qua = hien_thi_chu_da_doan(chu_doan, tu)
+print("Kết quả đoán:", ket_qua)
+
 
 
 
