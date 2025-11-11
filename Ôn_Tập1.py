@@ -1,3 +1,4 @@
+# CÂU 1
 import math
 
 # Hàm kiểm tra số nguyên tố
@@ -15,7 +16,7 @@ for number in range(1, 51):
         print(number, end=" ")
 print("\n")
 
-# Hàm đếm nguyên âm
+# Hàm đếm nguyên âmcv 
 def count_vowels(s):
     vowels = "aeiouAEIOU"
     count = 0
@@ -51,7 +52,6 @@ class Book:
         print("Tiêu đề:", self.title)
         print("Tác giả:", self.author)
         print("Giá:", self.price)
-        print("---------------")
 
 # Lớp Library
 class Library:
@@ -73,11 +73,16 @@ class Library:
         for book in self.books:
             total += book.price
         return total
+    
+    def remove_book_by_id(self, book_id):
+        self.books = [book for book in self.books if book.book_id != book_id]
+        print("Id: ", book_id, "đã xóa")
 
     def display_info(self):
         for book in self.books:
             book.display_info()
 
+# CÂU 2
 # Thêm sách vào thư viện
 b1 = Book(1, "Python Cơ Bản", "Nguyễn Nhật Ánh", 100000)
 b2 = Book(2, "AI Toàn Tập", "Nguyễn Nhật Ánh", 150000)
@@ -89,6 +94,10 @@ lib.add_book(b2)
 lib.add_book(b3)
 
 print("Thông tin tất cả sách trong thư viện:")
+lib.display_info()
+
+print("\n")
+lib.remove_book_by_id(1)
 lib.display_info()
 
 print("\nTìm sách của Nguyễn Nhật Ánh:")
