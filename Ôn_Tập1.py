@@ -16,7 +16,7 @@ for number in range(1, 51):
         print(number, end=" ")
 print("\n")
 
-# Hàm đếm nguyên âmcv 
+# Hàm đếm nguyên âm 
 def count_vowels(s):
     vowels = "aeiouAEIOU"
     count = 0
@@ -106,3 +106,4 @@ for i in books:
     i.display_info()
 
 print("Tổng giá trị sách trong thư viện:", lib.get_total_value())
+
